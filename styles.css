@@ -1,4 +1,5 @@
 /* MY TEMPLATE */
+/* CSS Reset */
 * {
 	/* Outline to view layout on screen while styling | Remove after styling */
 	/* outline: 1px dashed #ff0075; */
@@ -6,37 +7,51 @@
 	padding: 0;
 	scroll-behavior: smooth;
 }
-html {
-	box-sizing: border-box;
-	font-size: 100%;
-}
+
 *,
 *:before,
 *:after {
 	box-sizing: inherit;
 }
 
-/* BEGIN mobile-first CSS default styles */
+html {
+	box-sizing: border-box;
+	font-size: 100%;
+}
 
+a {
+	text-decoration: none;
+}
+
+/* declaring variables for colors */
+:root {
+	--dark-violet: #52006a;
+	--black: #000;
+	--dark-yellow: #ffa900;
+	--crimson: #cd113b;
+	--dark-pink: #cc667c;
+	--nickel: #b9bab8;
+}
+
+/* mobile-first default styles */
+/* max-width 425px (26.5625em) */
 /* basic styles */
 body {
 	font-family: "Montserrat Alternates", sans-serif;
-	background-color: #52006a;
-	color: #000;
-	margin: 0;
-	padding: 0;
+	background-color: var(--dark-violet);
+	color: var(--black);
 }
+/* main */
 .main-highway {
-	background: #ffa900;
+	background: var(--dark-yellow);
 	padding: 3% 0;
 }
+/* image .gif */
 .image-gif img {
 	border-radius: 0.25em;
 	padding: 0.25em;
-	background: linear-gradient(to left, #cd113b, #52006a);
+	background: linear-gradient(to left, var(--crimson), var(--dark-violet));
 }
-
-/* Image .gif */
 .image-gif {
 	margin: 0.5em;
 	text-align: center;
@@ -46,35 +61,37 @@ body {
 	width: auto;
 	height: auto;
 }
-
-/* Header song title */
+/* header song title */
 .song-title {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background: linear-gradient(to right, #ffa900 0%, #cc667c 8%, #52006a 100%);
+	background: linear-gradient(
+		to right,
+		var(--dark-yellow) 0%,
+		var(--dark-pink) 8%,
+		var(--dark-violet) 100%
+	);
 }
 .song-title h1 a {
 	font-size: 1.3rem;
 	font-family: "Monoton", cursive;
-	color: #000;
-	text-decoration: none;
+	color: var(--black);
 }
 .song-title p {
 	padding-bottom: 0.25em;
 }
 .song-title .link:hover {
-	color: #cd113b;
+	color: var(--crimson);
 }
 .song-title h1 a i {
-	color: #cc667c;
+	color: var(--dark-pink);
 	padding: 0.25em;
 }
 .song-title h1 a i:hover {
-	color: #000;
+	color: var(--black);
 }
-
-/* Body of song */
+/* body of song */
 .lyrics {
 	margin: 1em 3%;
 }
@@ -82,7 +99,6 @@ body {
 	padding: 1em;
 	font-size: 0.95rem;
 }
-
 /* footer */
 .credits {
 	font-size: 0.75rem;
@@ -91,7 +107,6 @@ body {
 .credits p {
 	padding: 0.25em 0;
 }
-
 /* back to top button */
 #top-button {
 	display: none;
@@ -102,30 +117,29 @@ body {
 	font-size: 1.15rem;
 	border: none;
 	outline: none;
-	background-color: #52006a;
+	background-color: var(--dark-violet);
 	cursor: pointer;
 	padding: 0.5em;
 	border-radius: 5px;
 }
 #top-button i {
-	color: #ffa900;
+	color: var(--dark-yellow);
 }
 #top-button i:hover {
-	color: #000;
-	background-color: #b9bab8;
+	color: var(--black);
+	background-color: var(--nickel);
 }
 
-/* BEGIN tablet styles */
-/* min-width: 620px */
-@media screen and (min-width: 620px) {
-	/* Image .gif */
+/* tablet styles */
+/* min-width: 48em (768px) */
+@media (min-width: 48em) {
+	/* image .gif */
 	.image-gif {
 		margin-bottom: 1em;
 		margin-right: 12.5%;
 		margin-left: 12.5%;
 	}
-
-	/* Header song title */
+	/* header song title */
 	.song-title h1 a {
 		font-size: 2rem;
 	}
@@ -133,8 +147,7 @@ body {
 		font-size: 1.5rem;
 		padding-bottom: 0.25em;
 	}
-
-	/* Body of song */
+	/* body of song */
 	.lyrics {
 		margin: 0.5em 17%;
 	}
@@ -142,42 +155,38 @@ body {
 		padding-left: 1.5em;
 		padding-right: 1.5em;
 	}
-
-	/* Footer */
+	/* footer */
 	.credits {
 		margin: 0.5em 17%;
 		font-size: 0.85rem;
 	}
-
 	/* back to top button */
 	#top-button {
 		font-size: 1.3rem;
 	}
 }
 
-/* BEGIN laptop styles */
-/* min-width: 960px */
-@media screen and (min-width: 960px) {
+/* laptop styles to desktop */
+/* min-width: 64em (1024px) */
+@media (min-width: 64em) {
+	/* basic styles */
 	body {
 		width: 100%;
 		max-width: 64em;
 		margin: 0 auto;
 	}
-
-	/* Image .gif */
+	/* image .gif */
 	.image-gif {
 		margin: 1.25em 20%;
 	}
-
-	/* Header song title */
+	/* header song title */
 	.song-title h1 a {
 		font-size: 2.25rem;
 	}
 	.song-title p {
 		font-size: 1.5rem;
 	}
-
-	/* Body of song */
+	/* body of song */
 	.lyrics {
 		margin: 1.25em 25%;
 	}
@@ -185,14 +194,12 @@ body {
 		font-size: 1.1rem;
 		padding: 1em 0.5em;
 	}
-
-	/* Footer */
+	/* footer */
 	.credits {
 		margin: 1.25em 25%;
 	}
-
 	/* back to top button */
 	#top-button {
-		font-size: 1.5rem;
+		font-size: 2rem;
 	}
 }
